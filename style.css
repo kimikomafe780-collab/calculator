@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(135deg, #d9d1fc 0%, #88c4d7 100%);
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.calculator {
+    width: 100%;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.calculator-header {
+    background-color: #673ab7;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.calculator-header h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.calculator-display {
+    background-color: #f8f4ff;
+    padding: 20px;
+    text-align: right;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.display-input {
+    font-size: 24px;
+    color: #8a72c9;
+    margin-bottom: 10px;
+    word-break: break-all;
+}
+
+.display-result {
+    font-size: 36px;
+    font-weight: bold;
+    color: #673ab7;
+    word-break: break-all;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background-color: #d9d1fc;
+}
+
+.btn {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    background-color: #f8f4ff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    color: #673ab7;
+}
+
+.btn:hover {
+    background-color: #e6defa;
+    transform: scale(1.02);
+}
+
+.btn:active {
+    transform: scale(0.98);
+    box-shadow: inset 0 2px 4px rgba(103, 58, 183, 0.2);
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.btn-clear {
+    background-color: #673ab7;
+    color: white;
+}
+
+.btn-clear:hover {
+    background-color: #5a2ea6;
+}
+
+.btn-backspace {
+    background-color: #9575cd;
+    color: white;
+}
+
+.btn-backspace:hover {
+    background-color: #8664c8;
+}
+
+.btn-percent {
+    background-color: #b39ddb;
+    color: white;
+}
+
+.btn-percent:hover {
+    background-color: #a58bd8;
+}
+
+.btn-operator {
+    background-color: #d9d1fc;
+    color: #673ab7;
+}
+
+.btn-operator:hover {
+    background-color: #c8b6fa;
+}
+
+.btn-equals {
+    background-color: #88c4d7;
+    color: white;
+}
+
+.btn-equals:hover {
+    background-color: #77b8ca;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 10px;
+    }
+    
+    .calculator {
+        border-radius: 12px;
+    }
+    
+    .calculator-header {
+        padding: 10px;
+    }
+    
+    .calculator-header h1 {
+        font-size: 18px;
+    }
+    
+    .calculator-display {
+        padding: 15px;
+        min-height: 100px;
+    }
+    
+    .display-input {
+        font-size: 20px;
+    }
+    
+    .display-result {
+        font-size: 30px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn:active {
+    animation: pulse 0.2s ease;
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #2c2c2c;
+        background-image: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    }
+    
+    .calculator {
+        background-color: #3a3a3a;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .calculator:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+    
+    .calculator-header {
+        background-color: #4a2a9c;
+    }
+    
+    .calculator-display {
+        background-color: #453a6b;
+    }
+    
+    .display-input {
+        color: #b39ddb;
+    }
+    
+    .display-result {
+        color: #d9d1fc;
+    }
+    
+    .calculator-buttons {
+        background-color: #4a2a9c;
+    }
+    
+    .btn {
+        background-color: #453a6b;
+        color: #d9d1fc;
+    }
+    
+    .btn:hover {
+        background-color: #3d325e;
+    }
+    
+    .btn-clear {
+        background-color: #4a2a9c;
+    }
+    
+    .btn-clear:hover {
+        background-color: #3f2386;
+    }
+    
+    .btn-backspace {
+        background-color: #5d429c;
+    }
+    
+    .btn-backspace:hover {
+        background-color: #4f368b;
+    }
+    
+    .btn-percent {
+        background-color: #6e56ad;
+    }
+    
+    .btn-percent:hover {
+        background-color: #5f4899;
+    }
+    
+    .btn-operator {
+        background-color: #5d429c;
+        color: #d9d1fc;
+    }
+    
+    .btn-operator:hover {
+        background-color: #4f368b;
+    }
+    
+    .btn-equals {
+        background-color: #5a8da8;
+    }
+    
+    .btn-equals:hover {
+        background-color: #4a7a93;
+    }
+}
